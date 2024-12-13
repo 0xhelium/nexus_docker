@@ -1,0 +1,1 @@
+docker build -f .\dockerfile -t csrocks/nexus:compiled --no-cache .

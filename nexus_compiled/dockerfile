@@ -1,1 +1,17 @@
+FROM csrocks/nexusbase as base
+USER root
+COPY . .
+ENV TZ=Asia/Kolkata
+ARG DEBIAN_FRONTEND=noninteractive
 
+#RUN echo 'export PATH=$PATH:/root/.local/bin' | tee -a /root/.bashrc && source /root/.bashrc
+RUN apt install -y protobuf-compiler
+RUN /bin/bash /launchapp.sh
+
+from base
+USER root
+WORKDIR /root/.nexus/network-api/clients/cli
+
+RUN cd /root/.nexus/network-api/clients/cli
+
+RUN /root/.cargo/bin/cargo build --release
