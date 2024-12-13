@@ -10,3 +10,5 @@ docker run -it -d --name nexus -e PROVERID="YOUR_PROVERID" csrocks/nexus:pid
 ```
 docker logs nexus -f --tail 100
 ```
+
+[![docker logs](images/nexus-docker-logs.png)](nexus-docker-logs.png)
