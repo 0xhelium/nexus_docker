@@ -1,1 +1,8 @@
+FROM csrocks/nexus:compiled as base
+USER root
+WORKDIR /root/.nexus/network-api/clients/cli
+COPY . .
+ENV TZ=Asia/Kolkata
+RUN cd /root/.nexus/network-api/clients/cli
 
+ENTRYPOINT ["sh", "entrypoint.sh"]
